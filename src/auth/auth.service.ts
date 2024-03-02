@@ -64,7 +64,7 @@ export class AuthService {
     res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
       httpOnly: true,
       // коли буду деплоїти поміняти на деплой лінк
-      domain: "localhost",
+      domain: "https://planner-backend-4cgu.onrender.com",
       expires: expiresIn,
       secure: true,
       sameSite: "none",
@@ -74,7 +74,7 @@ export class AuthService {
   removeRefreshTokenFromResponse(res: Response) {
     res.cookie(this.REFRESH_TOKEN_NAME, "", {
       httpOnly: true,
-      domain: "localhost",
+      domain: "https://planner-backend-4cgu.onrender.com",
       expires: new Date(0),
       secure: true,
       sameSite: "none",
