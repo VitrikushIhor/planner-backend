@@ -12,12 +12,8 @@ COPY . .
 RUN yarn add -D prisma
 RUN yarn prisma generate
 
-ENV DATABASE_URL="postgresql://postgres:123@postgres:5432/planner-db?schema=public"
+ENV DATABASE_URL="postgres://root:YQJJiMSkPR6a6PaKq3y3h0NxD95cb3EG@dpg-cnhpf27109ks73ffk12g-a.oregon-postgres.render.com/planner_mefo"
 
-# Додайте виклик міграції у скрипт запуску
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 5000
 

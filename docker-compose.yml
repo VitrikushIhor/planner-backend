@@ -1,28 +1,10 @@
 version: '3.1'
 
 services:
-  postgres:
-    image: postgres:13
-    container_name: planner-db
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: planner-db
-    volumes:
-      - my_postgres_data:/var/lib/postgresql/data
-
-  nestjs_app:
+  planner-backend_app:
     build: .
-    container_name: nestjs-app
+    container_name: planner-backend
     ports:
       - "5000:5000"
-    depends_on:
-      - postgres
     environment:
-      DATABASE_URL: "postgresql://postgres:123@postgres:5432/planner-db?schema=public"  # Змінено localhost на ім'я служби
-
-volumes:
-  my_postgres_data:
+      DATABASE_URL: "postgres://root:YQJJiMSkPR6a6PaKq3y3h0NxD95cb3EG@dpg-cnhpf27109ks73ffk12g-a.oregon-postgres.render.com/planner_mefo"
